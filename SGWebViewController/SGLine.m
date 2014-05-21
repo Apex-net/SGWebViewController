@@ -104,8 +104,8 @@
      ...
      */
     
-    int rows = [self.x count];
-    int column = [self.ys count];
+    NSInteger rows = [self.x count];
+    NSInteger column = [self.ys count];
     
     for (int r=0; r<rows; r++) {
         NSMutableDictionary *row = [[NSMutableDictionary alloc]init];
@@ -174,8 +174,8 @@
     if (!self.dataSource)
         return;
     
-    int tempLines = [self.dataSource numberOfLinesInChart];
-    int tempPoints = [self.dataSource numberOfPointsInLines];
+    NSInteger tempLines = [self.dataSource numberOfLinesInChart];
+    NSInteger tempPoints = [self.dataSource numberOfPointsInLines];
     
     // Asking for x & desc
     for (int point=0; point<tempPoints; point++) {
@@ -263,7 +263,7 @@
 
 - (NSString *)getJSTextGlobals
 {
-    return [NSString stringWithFormat:@"var objective_c_width=%d;"
+    return [NSString stringWithFormat:@"var objective_c_width=%lu;"
             "function calculate_best_width(c){if(c.getWidth()<objective_c_width){return objective_c_width;}else{return c.getWidth()}};",
             self.xPointsPadding * [self.x count]];
 }

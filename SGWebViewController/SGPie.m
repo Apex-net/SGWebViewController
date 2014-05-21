@@ -54,7 +54,7 @@
         return;
     
     // For every slice
-    int tempSlices = [self.dataSource numberOfSlicesInPie];
+    NSInteger tempSlices = [self.dataSource numberOfSlicesInPie];
     for (int slice=0; slice<tempSlices; slice++) {
         NSDictionary *newSlice = [[NSDictionary alloc]initWithObjectsAndKeys:
                                   [self.dataSource labelForSlice:slice],@"key",

@@ -88,10 +88,10 @@
     (self.title && ![self.title isEqualToString:@""]) ? result = [result stringByAppendingFormat:@"title:%@,",[self.title JSONString]] : nil;
     result = [result stringByAppendingFormat:@"grid:%d,",[[[NSNumber alloc]initWithBool:self.showGrid] intValue]];
     result = (self.forcedRange.location != 0 || self.forcedRange.length != 0)
-    ? [result stringByAppendingFormat:@"minorTickSteps:1,majorTickSteps:%d,minimum:%d,maximum:%d",
-                  self.forcedRange.length,
-                  self.forcedRange.location,
-                  self.forcedRange.location + self.forcedRange.length]
+    ? [result stringByAppendingFormat:@"minorTickSteps:1,majorTickSteps:%lu,minimum:%lu,maximum:%lu",
+                  (unsigned long)self.forcedRange.length,
+                  (unsigned long)self.forcedRange.location,
+                  (unsigned long)(self.forcedRange.location + self.forcedRange.length)]
     : [result stringByAppendingFormat:@"fields:%@",[self.dataFieldsBindsNames JSONString]];
     
     return [NSString stringWithFormat:@"{%@}",result];
